@@ -73,6 +73,7 @@ class WeeklyForecastViewController: UIViewController {
     }
     
     func getSortedData(from weatherForecast: WeatherForecast?) -> [GroupedForecast] {
+        print(weatherForecast)
         var groupedForecast: [GroupedForecast] = []
         var minTemperatures: [Double] = []
         var maxTemperatures: [Double] = []
@@ -103,7 +104,7 @@ class WeeklyForecastViewController: UIViewController {
         guard let dateString = dateString else { return "" }
 
         let date = dateFormatter.date(from: dateString)
-        dateFormatter.dateFormat = "dd.MM.yy"
+        dateFormatter.dateFormat = "EEEE, dd MMM"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         guard let date = date else { return "" }
         
@@ -138,6 +139,13 @@ extension WeeklyForecastViewController: UITableViewDataSource {
                                        alpha: 1)
 //        cell.setImage(image: UIImage(named: "sun"))
 //        cell.setLabels(dayOfWeek: "Monday, 22 Aug", temperature: "30℃ / 18℃")
+        let date = self.groupedForecast[indexPath.row].date
+        let maxTemterature = getTemperature(tempKelvin: self.groupedForecast[indexPath.row].maxTemperature,
+                                            needMaxTemp: true)
+        let minTemterature = getTemperature(tempKelvin: self.groupedForecast[indexPath.row].minTemperature,
+                                            needMaxTemp: false)
+        cell.setLabels(dayOfWeek: date,
+                       temperature: "\(maxTemterature)℃ / \(minTemterature)℃")
         if let img = UIImage(named: "sun") {
             cell.setImage(image: img)
         }
