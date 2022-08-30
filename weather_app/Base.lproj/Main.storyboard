@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Side Menu View Controller-->
+        <scene sceneID="kBy-C4-fqa">
+            <objects>
+                <viewController storyboardIdentifier="SideMenuID" id="XfX-io-Nn1" customClass="SideMenuViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xii-0c-ddi">
+                        <rect key="frame" x="0.0" y="0.0" width="260" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zDm-tc-NaE">
+                                <rect key="frame" x="0.0" y="0.0" width="260" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XfX-io-Nn1" id="B1d-eh-A96"/>
+                                    <outlet property="delegate" destination="XfX-io-Nn1" id="9Ao-aj-lsc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EPL-yB-bDh"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zDm-tc-NaE" firstAttribute="leading" secondItem="EPL-yB-bDh" secondAttribute="leading" id="0cR-sc-icV"/>
+                            <constraint firstItem="zDm-tc-NaE" firstAttribute="top" secondItem="EPL-yB-bDh" secondAttribute="top" id="2PH-H2-8CQ"/>
+                            <constraint firstItem="EPL-yB-bDh" firstAttribute="bottom" secondItem="zDm-tc-NaE" secondAttribute="bottom" id="TS2-Lc-PjG"/>
+                            <constraint firstAttribute="trailing" secondItem="zDm-tc-NaE" secondAttribute="trailing" id="pHu-NA-xrD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XFs-wq-O5D"/>
+                    <size key="freeformSize" width="260" height="736"/>
+                    <connections>
+                        <outlet property="sideMenuTableView" destination="zDm-tc-NaE" id="Tpd-s5-Tvd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKU-fR-zzf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785.50724637681162" y="83.967391304347828"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsm-4g-Wf7">
+                                <rect key="frame" x="20" y="20" width="47" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="line.horizontal.3" catalog="system"/>
+                                <connections>
+                                    <action selector="openSideMenuButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m7X-ND-zZZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nsm-4g-Wf7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="7RF-Hb-TPS"/>
+                            <constraint firstItem="nsm-4g-Wf7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oZ1-9j-nuV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="83.967391304347828"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
